@@ -25,7 +25,8 @@ void execute(FILE *file)
 	while (fgets(buf, sizeof(buf), file))
 	{
 		buf[strcspn(buf, "\n")] = '\0';
-		opcode = strtok(buf, " ");
+		opcode = strtok(buf, DELIM);
+		/**printf("%s\n", opcode);*/
 		if (opcode == NULL)
 		{
 			fprintf(stderr, "L%u: unknown instruction\n", line_number);
